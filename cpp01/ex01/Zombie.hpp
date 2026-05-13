@@ -6,7 +6,7 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 23:44:34 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/11 21:03:22 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/14 03:20:25 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ class	Zombie
 		std::string	_name;
 	public:
 		Zombie(std::string name);
+		Zombie(void);
 		~Zombie();
 		void	announce(void);
+		void	setName(std::string name);
 };
 
 	Zombie* zombieHorde(int N, std::string name);
