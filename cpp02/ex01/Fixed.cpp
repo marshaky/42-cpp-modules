@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 19:37:31 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/16 01:32:27 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/16 19:51:31 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ const int	Fixed::_fract = 8;
 
 Fixed::Fixed()
 {
-	this->_value = 0;
 	std::cout << "Default constructor called" << std::endl;
+	this->_value = 0;
 }
 
 /* 1234 << 8 = 1234 * 256 = 1234 * 2^8 = 1234 * 256 = 123400 */
 Fixed::Fixed(const int &value)
 {
-	this->_value = value << _fract;
 	std::cout << "Int constructor called" << std::endl;
+	this->_value = value << _fract;
 }
 
 Fixed::Fixed(const float &value)
 {
-	this->_value = roundf(value * (1 << _fract));
 	std::cout << "Float constructor called" << std::endl; 
+	this->_value = roundf(value * (1 << _fract));
 }
 
 Fixed::Fixed(Fixed const &copy)
 {
-	*this = copy;
 	std::cout << "Copy constructor called" << std::endl;
+	*this = copy;
 }
 
 Fixed::~Fixed()
@@ -46,15 +46,14 @@ Fixed::~Fixed()
 
 Fixed &Fixed::operator=(Fixed const &copy)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &copy)
 		this->_value = copy.getRawBits();
-	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
 	
 int	Fixed::getRawBits() const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (_value);
 }
 void	Fixed::setRawBits(int const raw)
