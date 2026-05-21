@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 00:35:49 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/17 00:38:53 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/19 18:42:23 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    ClapTrap clap("CL4P-TP");
+    ClapTrap clap("TP");
 
     clap.attack("Bandit");
     clap.takeDamage(5);

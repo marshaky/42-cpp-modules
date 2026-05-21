@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 00:35:49 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/19 02:22:47 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/19 20:11:13 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -36,6 +37,7 @@ int main()
 
         delete clap;
     }
-
+    DiamondTrap d;
+d.attack("s");
     return 0;
 }

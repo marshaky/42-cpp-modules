@@ -6,12 +6,12 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 00:41:45 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/07 00:42:00 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/14 03:38:21 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef __CONTACT_HPP__
+# define __CONTACT_HPP__
 
 # include <iostream>
 # include <string>

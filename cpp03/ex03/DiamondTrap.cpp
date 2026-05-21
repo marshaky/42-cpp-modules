@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 02:24:09 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/19 02:26:49 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/19 19:19:55 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 #include "ScavTrap.hpp"
 
-DiamondTrap::DiamondTrap(void)
+DiamondTrap::DiamondTrap(void) : ClapTrap("default_clap_name")
 {
-	ClapTrap::_name = "default_clap_name";
+	this->_name = "default";
+	this->_hp = 100;
+	this->_energy_points = 50;
+	this->_damage = 30;
 	std::cout << "DiamondTrap " << this->_name << " created with default constructor." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const &name): ClapTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string const &name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
 	this->_name = name;
 	this->_hp = FragTrap::_hp;
@@ -35,13 +38,17 @@ DiamondTrap::~DiamondTrap(void)
 
 DiamondTrap::DiamondTrap(DiamondTrap const &copy): ClapTrap(copy), ScavTrap(copy), FragTrap(copy)
 {
+	this->_name = copy._name;
+	*this = copy;
 	std::cout << "DiamondTrap " << this->_name << " copied." << std::endl;
 }
 
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &copy)
 {
-	std::cout << "Assignment operator for DiamondTrap called." << std::endl;
+	std::cout << "DiamondTrap assignment operator called." << std::endl;
+	ScavTrap::operator=(copy);
 	FragTrap::operator=(copy);
+	this->_name = copy._name;
 	return (*this);
 }
 
@@ -52,7 +59,7 @@ void	DiamondTrap::whoAmI(void)
 	else
 	{
 		std::cout << "DiamondTrap name: " << this->_name << "." << std::endl;
-		std::cout << "ClapTrap name: " << ClapTrap::_name << "." << std::endl;
+		std::cout << "ClapTrap name: " << this->ClapTrap::_name << "." << std::endl;
 	}
 }
 

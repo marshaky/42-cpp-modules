@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 00:35:51 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/17 00:37:17 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/19 19:07:32 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 {
-	std::cout << "Assignment operator for ClapTrap called." << std::endl;
+	std::cout << "ClapTrap assignment operator called." << std::endl;
 	this->_name = copy._name;
 	this->_hp = copy._hp;
 	this->_energy_points = copy._energy_points;

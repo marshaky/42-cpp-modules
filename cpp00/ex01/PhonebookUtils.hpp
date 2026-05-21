@@ -6,12 +6,12 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 00:44:16 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/07 00:44:23 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/14 03:38:48 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACTUTILS_H
-# define CONTACTUTILS_H
+#ifndef __CONTACTUTILS_H__
+# define __CONTACTUTILS_H__
 
 # include "Contact.hpp"
 

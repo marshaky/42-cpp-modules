@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 22:59:57 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/19 02:05:53 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/19 20:14:13 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ScavTrap: public ClapTrap
 
 		ScavTrap	&operator=(ScavTrap const &copy);
 
+		void attack(const std::string& target);
 		void	guardGate(void);
 };
 
