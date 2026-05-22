@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DogCat.hpp                                         :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 20:07:35 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/22 23:59:51 by marshaky         ###   ########.fr       */
+/*   Created: 2026/05/23 01:50:17 by marshaky          #+#    #+#             */
+/*   Updated: 2026/05/23 01:50:43 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOGCAT_HPP__
-# define __DOGCAT_HPP__
+#ifndef __IMATERIASOURCE_HPP__
+# define __IMATERIASOURCE_HPP__
 
-#include "Animal.hpp"
+#include "AMateria.hpp"
 
-class Dog : public Animal {
+class IMateriaSource
+{
 	public:
-		Dog();
-		Dog(const Dog &dog);
-		~Dog();
-		Dog	&operator=(const Dog &dog);
-		
-		void	makeSound() const;
-};
+		virtual ~IMateriaSource() {}
 
-class Cat : public Animal {
-	public:
-		Cat();
-		Cat(const Cat &cat);
-		~Cat();
-		Cat	&operator=(const Cat &cat);
-
-		void	makeSound() const;
+		virtual void		learnMateria(AMateria *materia) = 0;
+		virtual AMateria*	createMateria(std::string const &type) = 0;
 };
 
 #endif

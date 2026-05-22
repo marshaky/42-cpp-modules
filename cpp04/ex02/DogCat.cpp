@@ -6,15 +6,15 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 20:08:56 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/23 00:04:29 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/23 00:03:36 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DogCat.hpp"
 
-Dog::Dog() : Animal()
+Dog::Dog() : Animal("Dog")
 {
-	_type = "Dog";
+	this->_brain = new Brain();
     std::cout << "Dog default constructor called" << std::endl;
 }
 Dog::Dog(const Dog &dog) : Animal(dog)
@@ -24,6 +24,7 @@ Dog::Dog(const Dog &dog) : Animal(dog)
 }
 Dog::~Dog()
 {
+	delete this->_brain;
 	std::cout << "Dog destructor called" << std::endl;
 }
 Dog& Dog::operator=(const Dog &dog)
@@ -41,9 +42,14 @@ void	Dog::makeSound() const
 	std::cout << "Haf - Haf" << std::endl;
 }
 
-Cat::Cat() : Animal()
+Brain	*Dog::getBrain() const
 {
-	_type = "Cat";
+	return (this->_brain);
+}
+
+Cat::Cat() : Animal("Cat")
+{
+	this->_brain = new Brain();
     std::cout << "Cat default constructor called" << std::endl;
 }
 
@@ -55,6 +61,7 @@ Cat::Cat(const Cat &cat) : Animal(cat)
 
 Cat::~Cat()
 {
+	delete this->_brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
 Cat& Cat::operator=(const Cat &cat)
@@ -70,4 +77,9 @@ Cat& Cat::operator=(const Cat &cat)
 void	Cat::makeSound() const
 {
 	std::cout << "Meow - Meow" << std::endl;
+}
+
+Brain*	Cat::getBrain() const
+{
+	return (this->_brain);
 }

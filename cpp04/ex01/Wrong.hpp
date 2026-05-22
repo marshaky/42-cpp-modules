@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DogCat.hpp                                         :+:      :+:    :+:   */
+/*   Wrong.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 20:07:35 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/22 23:59:51 by marshaky         ###   ########.fr       */
+/*   Created: 2026/05/22 20:19:31 by marshaky          #+#    #+#             */
+/*   Updated: 2026/05/22 20:24:08 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOGCAT_HPP__
-# define __DOGCAT_HPP__
+#ifndef __WRONG_HPP__
+# define __WRONG_HPP__
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Dog : public Animal {
+class WrongAnimal {
+
+	protected:
+		std::string	_type;
 	public:
-		Dog();
-		Dog(const Dog &dog);
-		~Dog();
-		Dog	&operator=(const Dog &dog);
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		WrongAnimal(const WrongAnimal &wrongAnimal);
+		~WrongAnimal();
+		WrongAnimal	&operator=(const WrongAnimal &wrongAnimal);
 		
 		void	makeSound() const;
+		std::string	getType() const;
 };
 
-class Cat : public Animal {
+class WrongCat : public WrongAnimal {
 	public:
-		Cat();
-		Cat(const Cat &cat);
-		~Cat();
-		Cat	&operator=(const Cat &cat);
-
+		WrongCat();
+		WrongCat(const WrongCat &wrongCat);
+		~WrongCat();
+		WrongCat	&operator=(const WrongCat &wrongCat);
+		
 		void	makeSound() const;
 };
 

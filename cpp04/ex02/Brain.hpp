@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DogCat.hpp                                         :+:      :+:    :+:   */
+/*   brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 20:07:35 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/22 23:59:51 by marshaky         ###   ########.fr       */
+/*   Created: 2026/05/22 23:49:53 by marshaky          #+#    #+#             */
+/*   Updated: 2026/05/22 23:50:42 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOGCAT_HPP__
-# define __DOGCAT_HPP__
+#ifndef __BRAIN_HPP
+# define __BRAIN_HPP
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Dog : public Animal {
+class Brain {
 	public:
-		Dog();
-		Dog(const Dog &dog);
-		~Dog();
-		Dog	&operator=(const Dog &dog);
-		
-		void	makeSound() const;
-};
+		std::string	ideas[100];
 
-class Cat : public Animal {
-	public:
-		Cat();
-		Cat(const Cat &cat);
-		~Cat();
-		Cat	&operator=(const Cat &cat);
-
-		void	makeSound() const;
+		Brain();
+		Brain(const Brain& brain);
+		~Brain();
+		Brain&	operator=(const Brain& brain);
 };
 
 #endif

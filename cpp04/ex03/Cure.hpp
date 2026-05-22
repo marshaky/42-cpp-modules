@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DogCat.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 20:07:35 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/22 23:59:51 by marshaky         ###   ########.fr       */
+/*   Created: 2026/05/23 01:48:26 by marshaky          #+#    #+#             */
+/*   Updated: 2026/05/23 01:48:49 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOGCAT_HPP__
-# define __DOGCAT_HPP__
+#ifndef __CURE_HPP__
+# define __CURE_HPP__
 
-#include "Animal.hpp"
+#include "ICharacter.hpp"
 
-class Dog : public Animal {
+class Cure: public AMateria
+{
 	public:
-		Dog();
-		Dog(const Dog &dog);
-		~Dog();
-		Dog	&operator=(const Dog &dog);
-		
-		void	makeSound() const;
-};
+		Cure(void);
+		Cure(Cure const &copy);
+		~Cure(void);
 
-class Cat : public Animal {
-	public:
-		Cat();
-		Cat(const Cat &cat);
-		~Cat();
-		Cat	&operator=(const Cat &cat);
+		Cure const	&operator=(Cure const &copy);
 
-		void	makeSound() const;
+		AMateria*	clone(void) const;
+		void		use(ICharacter &target);
 };
 
 #endif

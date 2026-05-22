@@ -6,7 +6,7 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 20:07:35 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/22 23:59:51 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/05/22 23:59:42 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "Animal.hpp"
 
 class Dog : public Animal {
+	private:
+		Brain	*_brain;
 	public:
 		Dog();
 		Dog(const Dog &dog);
@@ -23,9 +25,12 @@ class Dog : public Animal {
 		Dog	&operator=(const Dog &dog);
 		
 		void	makeSound() const;
+		Brain*	getBrain(void) const;
 };
 
 class Cat : public Animal {
+	private:
+		Brain	*_brain;
 	public:
 		Cat();
 		Cat(const Cat &cat);
@@ -33,6 +38,7 @@ class Cat : public Animal {
 		Cat	&operator=(const Cat &cat);
 
 		void	makeSound() const;
+		Brain*	getBrain(void) const;
 };
 
 #endif

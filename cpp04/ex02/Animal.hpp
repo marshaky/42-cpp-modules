@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DogCat.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 20:07:35 by marshaky          #+#    #+#             */
-/*   Updated: 2026/05/22 23:59:51 by marshaky         ###   ########.fr       */
+/*   Created: 2026/05/21 19:11:33 by marshaky          #+#    #+#             */
+/*   Updated: 2026/05/23 01:38:07 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOGCAT_HPP__
-# define __DOGCAT_HPP__
+#ifndef __ANIMAL_HPP__
+# define __ANIMAL_HPP__
 
-#include "Animal.hpp"
+#include <iostream>
+#include "Brain.hpp"
 
-class Dog : public Animal {
+class Animal {
+
+	protected:
+		std::string	_type;
 	public:
-		Dog();
-		Dog(const Dog &dog);
-		~Dog();
-		Dog	&operator=(const Dog &dog);
+		Animal();
+		Animal(std::string type);
+		Animal(const Animal& rhs);
+		virtual ~Animal(void);
+		Animal	&operator=(const Animal &animal);
 		
-		void	makeSound() const;
-};
-
-class Cat : public Animal {
-	public:
-		Cat();
-		Cat(const Cat &cat);
-		~Cat();
-		Cat	&operator=(const Cat &cat);
-
-		void	makeSound() const;
+		virtual void	makeSound() const = 0;
+		std::string	getType() const;
+		virtual Brain	*getBrain() const;
 };
 
 #endif
