@@ -3,7 +3,7 @@ NAME		= intern
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC			= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+SRCS			= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJS = $(SRCS:.cpp=.o)

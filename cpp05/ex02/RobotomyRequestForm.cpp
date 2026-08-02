@@ -3,22 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:03:00 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:03:01 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 18:47:11 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm()
+	: AForm("Robotomy Request Form", 72, 45)
+	, target("Default")
+{}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-	: Form("Robotomy Request Form", 72, 45)
+	: AForm("Robotomy Request Form", 72, 45)
 	, target(target)
 {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
-	: Form(src)
+	: AForm(src)
 	, target(src.target)
 {}
 
@@ -33,7 +38,7 @@ RobotomyRequestForm&    RobotomyRequestForm::operator=(const RobotomyRequestForm
 void    RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
 	if ( executor.getGrade() > this->getGradeToExecute() )
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else
 	{
 		static int  i;

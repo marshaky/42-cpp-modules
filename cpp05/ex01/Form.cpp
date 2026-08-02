@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 03:55:43 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:00:26 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 18:26:00 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,15 @@ Form::Form(const Form& rhs)
 	, gradeToSign(rhs.gradeToSign)
 	, gradeToExecute(rhs.gradeToExecute)
 {}
+
+Form &Form::operator=( const Form& rhs )
+{
+	if (this != &rhs)
+	{
+		isSigned = rhs.isSigned;
+	}
+	return (*this);
+}
 
 Form::~Form() {}
 

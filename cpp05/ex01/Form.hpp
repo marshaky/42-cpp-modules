@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 03:55:59 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:01:00 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 18:21:24 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ private:
 	bool				isSigned;
 	const int			gradeToSign;
 	const int			gradeToExecute;
-	Form();
 public:
+	Form();
 	Form(const std::string& name, int gradeToSign, int gradeToExecute);
 	Form(const Form& rhs);
 	~Form();

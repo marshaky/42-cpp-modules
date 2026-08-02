@@ -3,22 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:05:03 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:05:04 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 19:07:06 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: AForm("ShrubberyCreationForm", 145, 137)
+	, target("Default")
+{}
+
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-	: Form("ShrubberyCreationForm", 145, 137)
+	: AForm("ShrubberyCreationForm", 145, 137)
 	, target(target)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& rhs)
-	: Form(rhs)
+	: AForm(rhs)
 	, target(rhs.target)
 {}
 
@@ -26,16 +31,20 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
 {
-	(void)rhs;
+	if (this != &rhs)
+	{
+		AForm::operator=(rhs);
+		target = rhs.target;
+	}
 	return *this;
 }
 
 void    ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
     if (!getSigned())
-        throw Form::NotSignedException();
+        throw AForm::NotSignedException();
     else if (executor.getGrade() > this->getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 
     std::ofstream file((this->getName() + "_shrubbery").c_str());
 

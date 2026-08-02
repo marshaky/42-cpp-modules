@@ -3,26 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:03:08 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:03:09 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 18:38:37 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
-# include "Form.hpp"
+# include "AForm.hpp"
 # include <fstream>
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
 private:
 	const std::string	target;
-
-	ShrubberyCreationForm();
-
 public:
+	ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string& target);
 	ShrubberyCreationForm(const ShrubberyCreationForm& rhs);
 	~ShrubberyCreationForm();

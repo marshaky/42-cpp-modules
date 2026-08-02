@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:04:01 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:04:05 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 18:58:08 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     Intern(const Intern& src);
     ~Intern();
     Intern& operator=(const Intern& rhs);
-    Form*   makeForm(std::string name, std::string target);
+    AForm*   makeForm(std::string name, std::string target);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:03:58 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:03:59 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 19:14:19 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Intern&	Intern::operator=(const Intern& rhs)
 	return (*this);
 }
 
-Form*   Intern::makeForm( std::string name, std::string target )
+AForm*   Intern::makeForm( std::string name, std::string target )
 {
 	char	key;
 

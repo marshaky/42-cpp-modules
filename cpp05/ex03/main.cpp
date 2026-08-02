@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:04:07 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:04:08 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/02 18:57:54 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
     {
         Intern  someRandomIntern;
-        Form*   rrf;
+        AForm*   rrf;
 
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         delete rrf;

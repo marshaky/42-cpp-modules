@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AAForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/28 04:03:44 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 04:03:55 by marshaky         ###   ########.fr       */
+/*   Created: 2026/07/28 04:01:54 by marshaky          #+#    #+#             */
+/*   Updated: 2026/08/02 18:30:27 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class	Form {
+class	AForm {
 private:
 	const std::string	name;
 	bool				isSigned;
 	const int			gradeToSign;
 	const int			gradeToExecute;
-	Form();
-
 public:
-	Form(const std::string& name, int gradeToSign, int gradeToExecute);
-	Form(const Form& rhs);
-	virtual ~Form();
-	Form&	operator=( const Form& rhs );
+	AForm();
+	AForm(const std::string& name, int gradeToSign, int gradeToExecute);
+	AForm(const AForm& rhs);
+	virtual ~AForm();
+	AForm&	operator=( const AForm& rhs );
 	const std::string&	getName() const;
 	bool				getSigned() const;
 	int					getGradeToSign() const;
@@ -40,23 +39,23 @@ public:
 	class GradeTooHighException : public std::exception {
 	public:
 		const char* what() const throw() {
-			return "Form exception: exception: grade too high!"; 
+			return "AForm exception: exception: grade too high!"; 
 		}
     };
 	class GradeTooLowException : public std::exception {
 	public:
 		const char* what() const throw() {
-			return "Form exception: exception: grade too low!";
+			return "AForm exception: exception: grade too low!";
 		}
 	};
 	class NotSignedException : public std::exception {
 	public:
 		const char *what() const throw() {
-			return "Form exception: exception: form not signed!";
+			return "AForm exception: exception: AForm not signed!";
 		}
 	};
 };
 
-std::ostream&	operator<<(std::ostream &os, Form& form);
+std::ostream&	operator<<(std::ostream &os, AForm& AForm);
 
 #endif
