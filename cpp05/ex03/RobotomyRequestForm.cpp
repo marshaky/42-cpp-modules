@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:04:51 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/02 19:05:54 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/06 19:20:06 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,17 @@ RobotomyRequestForm&    RobotomyRequestForm::operator=(const RobotomyRequestForm
 }
 
 void    RobotomyRequestForm::execute(const Bureaucrat& executor) const
-{
+{	
+	if (!this->getSigned())
+        throw AForm::NotSignedException();
 	if ( executor.getGrade() > this->getGradeToExecute() )
 		throw AForm::GradeTooLowException();
 	else
 	{
-		static int  i;
-		if ( i % 2 == 0 )
-			std::cout << "BZZZZZT! " << target << " has been robotomized!" << std::endl;
-		else
-			std::cout << "Robotomy failed! " << target << " is still alive." << std::endl;
-		i++;
+		std::cout << "* DRILLING NOISES: BZZZZZZZZZ! *" << std::endl;
+			if (std::rand() % 2)
+    	std::cout << target << " has been robotomized successfully!" << std::endl;
+			else
+    	std::cout << "Robotomy failed on " << target << "." << std::endl;
     }
 }

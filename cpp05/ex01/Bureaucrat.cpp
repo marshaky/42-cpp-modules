@@ -6,14 +6,13 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 03:54:56 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 03:54:57 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/03 19:09:37 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
-	: name("NoName")
+Bureaucrat::Bureaucrat() : name("Default"), grade(LOWEST_GRADE)
 {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -38,7 +37,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& bro)
 {
 	if (this != &bro)
 	{
-		const_cast<std::string&>(this->name) = bro.name;
+		//const_cast<std::string&>(this->name) = bro.name;
 		this->grade = bro.grade;
 	}
 	return *this;
@@ -93,9 +92,9 @@ void	Bureaucrat::signForm(Form& form)
 {
 	try {
 		form.beSigned(*this);
-		std::cout << *this << " signed " << form.getName() << std::endl;
+		std::cout << this->name << " signed " << form.getName() << std::endl;
 	} catch (Form::GradeTooLowException &e) {
-		std::cout << name << " coulnd't sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << this->name << " coulnd't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 

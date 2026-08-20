@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 03:55:59 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/02 18:21:24 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/19 19:09:27 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,24 @@ public:
 	bool				getSigned() const;
 	int					getGradeToSign() const;
 	int					getGradeToExecute() const;
-	void				beSigned(Bureaucrat& bureaucrat);
+	void				beSigned(const Bureaucrat& bureaucrat);
 
 	class GradeTooHighException : public std::exception {
 	public:
-		const char* what() const throw() {
-			return "Form exception: exception: grade too high!"; 
-		}
-    };
+		const char* what() const throw();
+	};
+
 	class GradeTooLowException : public std::exception {
 	public:
-		virtual const char* what() const throw() {
-			return "Form exception: exception: grade too low!";
-		}
+		const char* what() const throw();
 	};
+
 	class NotSignedException : public std::exception {
 	public:
-		virtual const char *what() const throw() {
-			return "Form exception: exception: form not signed!";
-		}
+		const char* what() const throw();
 	};
 };
 
-std::ostream&	operator<<(std::ostream &os, Form& form);
+std::ostream&	operator<<(std::ostream &os, const Form& form);
 
 #endif

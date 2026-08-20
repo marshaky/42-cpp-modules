@@ -6,14 +6,12 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 03:56:12 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/28 03:56:13 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/03 19:12:25 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
 #include <cstdlib>
-#include "Form.hpp"
 
 using std::cout;
 using std::cerr;
@@ -21,92 +19,76 @@ using std::endl;
 
 int main(void)
 {
-	cout << "GENERAL" << endl;
-	{
-		// Constructor
-		Form	a("Contract", 42, 42);
-		// Copy Constructor
-		Form	b(a);
-		// Copy assignment
-		Form	c = b;
+    cout << "=== GENERAL & CANONICAL FORM ===" << endl;
+    {
+        Form    a("Contract", 42, 42);
+        Form    b(a);
+        Form    c = b;
 
-		// ostream overload
-		cout << "a:\n" << a << endl;
-		cout << "b:\n" << b << endl;
-		cout << "c:\n" << c << endl;
-	}
+        cout << "a:\n" << a << endl;
+        cout << "b:\n" << b << endl;
+        cout << "c:\n" << c << endl;
+    }
 
-	cout << endl;
+    cout << "\n=== EXCEPTION TESTS (CONSTRUCTION) ===" << endl;
+    {
+        cout << "-- Test 1: Grade too low --" << endl;
+        try {
+            Form a("A", LOWEST_GRADE + 1, LOWEST_GRADE);
+            cout << a << endl;
+        } catch (std::exception& e) {
+            cerr << e.what() << endl;
+        }
 
-	{
-		cout << "TEST 1" << endl;
-		try
-		{
-			// Grade too low
-			Form	a("A", LOWEST_GRADE + 1, LOWEST_GRADE - 1);
-			cout << a << endl;
-		}
-		catch (std::exception& e) {
-			cerr << e.what() << endl;
-		}
+        cout << "\n-- Test 2: Grade too high --" << endl;
+        try {
+            Form b("B", HIGHEST_GRADE - 1, 42);
+            cout << b << endl;
+        } catch (std::exception& e) {
+            cerr << e.what() << endl;
+        }
+    }
 
-		cout << endl;
+    cout << "\n=== DIRECT beSigned() TESTS ===" << endl;
+    {
+        try {
+            Bureaucrat  boss("Boss", HIGHEST_GRADE);
+            Bureaucrat  intern("Intern", LOWEST_GRADE);
+            Form        topSecret("Top Secret", 10, 5);
 
-		cout << "TEST 2" << endl;
-		try
-		{
-			// Grade too high
-			Form	b("B", HIGHEST_GRADE - 1, 42);
-			cout << b << endl;
-		}
-		catch (std::exception& e) {
-			cerr << e.what() << endl;
-		}
+            cout << topSecret << endl;
 
-		cout << endl;
+            // Direct signing fail
+            try {
+                topSecret.beSigned(intern);
+            } catch (std::exception& e) {
+                cerr << "Direct sign failed: " << e.what() << endl;
+            }
 
-		cout << "TEST 3" << endl;
-		try
-		{
-			// Able to sign all forms
-			Bureaucrat	s1("Student1", HIGHEST_GRADE);
-			cout << s1 << endl;
+            // Direct signing success
+            topSecret.beSigned(boss);
+            cout << "Signed status: " << (topSecret.getSigned() ? "Signed" : "Not Signed") << endl;
+        } catch (std::exception& e) {
+            cerr << e.what() << endl;
+        }
+    }
 
-			Form	c1("C1", HIGHEST_GRADE, 2);
-			Form	c2("C2", 90, LOWEST_GRADE);
-			cout << c1 << endl;
-			cout << c2 << endl;
+    cout << "\n=== BUREAUCRAT signForm() TESTS ===" << endl;
+    {
+        Bureaucrat  highGrade("Alice", 5);
+        Bureaucrat  lowGrade("Bob", 140);
+        Form        taxForm("Tax Form", 50, 20);
 
-			c1.beSigned(s1);
-			c2.beSigned(s1);
-			c1.beSigned(s1);
+        cout << taxForm << endl;
 
-			cout << c1 << endl;
-			cout << c2 << endl;
-		}
-		catch (std::exception& e) {
-			cerr << e.what() << endl;
-		}
+        cout << "-- Failed attempt via signForm --" << endl;
+        lowGrade.signForm(taxForm); // Should print failure message internally
 
-		cout << endl;
+        cout << "\n-- Successful attempt via signForm --" << endl;
+        highGrade.signForm(taxForm); // Should print success message internally
 
-		cout << "TEST 4" << endl;
-		try
-		{
-			// Unable to sign any form
-			Bureaucrat	s2("Student2", LOWEST_GRADE);
-			cout << s2 << endl;
+        cout << "\nFinal state:\n" << taxForm << endl;
+    }
 
-			Form	c3("C3", HIGHEST_GRADE, 2);
-			cout << c3 << endl;
-
-			// Exception will be thrown
-			c3.beSigned(s2);
-			cout << c3 << endl;
-		}
-		catch (std::exception& e) {
-			cerr << e.what() << endl;
-		}
-	}
-	return 0;
+    return 0;
 }

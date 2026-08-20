@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 18:27:11 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/03 18:27:14 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/19 19:44:16 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm()
-	: name("NoName")
-	, isSigned(false)
-	, gradeToSign(0)
-	, gradeToExecute(0)
+        : name("NoName")
+        , isSigned(false)
+        , gradeToSign(150)
+        , gradeToExecute(150)
 {}
 
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
@@ -76,7 +76,7 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 	isSigned = true;
 }
 
-std::ostream&	operator<<(std::ostream &os, AForm& AForm)
+std::ostream&	operator<<(std::ostream &os, const AForm& AForm)
 {
 	os << "Name: " << AForm.getName() << "\n"
 		   << "Signed: " << (AForm.getSigned() == true ? "yes" : "no") << "\n"
@@ -84,4 +84,19 @@ std::ostream&	operator<<(std::ostream &os, AForm& AForm)
 		   << "Grade to execute: " << AForm.getGradeToExecute() << "\n" 
 		   << std::endl;
 	return os;
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+    return "AForm exception: grade too high!";
+}
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+    return "AForm exception: grade too low!";
+}
+
+const char* AForm::NotSignedException::what() const throw()
+{
+    return "AForm exception: AForm not signed!";
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:03:15 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/02 18:56:57 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/20 19:52:09 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& bro)
 {
 	if (this != &bro)
 	{
-		const_cast<std::string&>(this->name) = bro.name;
+		//const_cast<std::string&>(this->name) = bro.name;
 		this->grade = bro.grade;
 	}
 	return *this;
@@ -93,11 +93,11 @@ void	Bureaucrat::signForm(AForm& form)
 		form.beSigned(*this);
 		std::cout << *this << " signed " << form.getName() << std::endl;
 	} catch (AForm::GradeTooLowException &e) {
-		std::cout << name << " coulnd't sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cout << name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
-void	Bureaucrat::execute(const AForm& form) const
+void	Bureaucrat::executeForm(const AForm& form) const
 {
 	try {
 		form.execute( *this );

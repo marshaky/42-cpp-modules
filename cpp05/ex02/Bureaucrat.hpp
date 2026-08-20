@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:01:27 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/02 18:45:17 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/19 19:22:15 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 	void				decrementGrade();
 	// void 				signForm(std::string form_name, bool was_signed) const;
 	void				signForm(AForm& form);
-	void				execute(const AForm& form) const;
+	void				executeForm(const AForm& form) const;
 
 	class	GradeTooHighException : public std::exception {
 		public:

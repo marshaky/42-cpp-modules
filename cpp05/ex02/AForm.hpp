@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 18:27:20 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/03 18:27:22 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/19 19:36:52 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,18 @@ public:
 
 	class GradeTooHighException : public std::exception {
 	public:
-		const char* what() const throw() {
-			return "AForm exception: exception: grade too high!"; 
-		}
+		const char* what() const throw();
     };
 	class GradeTooLowException : public std::exception {
 	public:
-		const char* what() const throw() {
-			return "AForm exception: exception: grade too low!";
-		}
+		const char* what() const throw();
 	};
 	class NotSignedException : public std::exception {
 	public:
-		const char *what() const throw() {
-			return "AForm exception: exception: AForm not signed!";
-		}
+		const char *what() const throw();
 	};
 };
 
-std::ostream&	operator<<(std::ostream &os, AForm& AForm);
+std::ostream&	operator<<(std::ostream &os, const AForm& AForm);
 
 #endif

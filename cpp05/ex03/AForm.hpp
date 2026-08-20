@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 18:27:38 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/03 18:27:39 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/20 19:52:43 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,15 @@ public:
 
 	class GradeTooHighException : public std::exception {
 	public:
-		const char* what() const throw() {
-			return "Form exception: exception: grade too high!"; 
-		}
+		const char* what() const throw();
     };
 	class GradeTooLowException : public std::exception {
 	public:
-		const char* what() const throw() {
-			return "Form exception: exception: grade too low!";
-		}
+		const char* what() const throw();
 	};
 	class NotSignedException : public std::exception {
 	public:
-		const char *what() const throw() {
-			return "Form exception: exception: form not signed!";
-		}
+		const char *what() const throw();
 	};
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 18:27:32 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/03 18:27:34 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/20 19:53:06 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,19 @@ std::ostream&	operator<<(std::ostream &os, AForm& AForm)
 		   << "Grade to execute: " << AForm.getGradeToExecute() << "\n" 
 		   << std::endl;
 	return os;
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+    return "AForm exception: grade too high!";
+}
+
+const char* AForm::GradeTooLowException::what() const throw()
+{
+    return "AForm exception: grade too low!";
+}
+
+const char* AForm::NotSignedException::what() const throw()
+{
+    return "AForm exception: AForm not signed!";
 }

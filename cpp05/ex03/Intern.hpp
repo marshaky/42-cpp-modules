@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marshaky <marshaky@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 04:04:01 by marshaky          #+#    #+#             */
-/*   Updated: 2026/08/02 18:58:08 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/20 19:48:44 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-enum Forms {
-	ROBOTOMY = 'r',
-	SHRUBBERY = 's',
-	PRESIDENTIAL = 'p'
-};
-
-class Intern {
+class Intern
+{
+private:
+    typedef AForm* (Intern::*FormCreator)(const std::string& target);
+    AForm* createRobotomy(const std::string& target);
+    AForm* createShrubbery(const std::string& target);
+    AForm* createPresidential(const std::string& target);
 public:
     Intern();
     Intern(const Intern& src);
     ~Intern();
     Intern& operator=(const Intern& rhs);
-    AForm*   makeForm(std::string name, std::string target);
+    AForm* makeForm(std::string name, std::string target);
 };
 
 #endif

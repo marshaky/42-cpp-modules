@@ -6,13 +6,13 @@
 /*   By: marshaky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 00:24:32 by marshaky          #+#    #+#             */
-/*   Updated: 2026/07/07 00:24:54 by marshaky         ###   ########.fr       */
+/*   Updated: 2026/08/03 18:45:45 by marshaky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("NoName")
+Bureaucrat::Bureaucrat() : name("Default"), grade(LOWEST_GRADE)
 {
 }
 
@@ -36,7 +36,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& bro)
 {
 	if (this != &bro)
 	{
-		const_cast<std::string&>(this->name) = bro.name;
+		//const_cast<std::string&>(this->name) = bro.name;
 		this->grade = bro.grade;
 	}
 	return *this;
